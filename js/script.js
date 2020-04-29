@@ -40,11 +40,14 @@ function showPage(list, page) {
 
 function appendPageLinks(list) {
     const pageNumbers = Math.ceil(list.length / itemsInPage);
+    /*creating wrapper div for the list 
+    and appending to main div*/
     const div = document.createElement('div');
     div.className = 'pagination';
     containerDiv.appendChild(div);
     const ul = document.createElement('ul');
     div.appendChild(ul);
+    //create list and append to student list
     for (let i = 0; i < pageNumbers; i += 1) {
         const li = document.createElement('li');
         ul.appendChild(li);
@@ -52,6 +55,7 @@ function appendPageLinks(list) {
         a.href = '#';
         a.textContent = i + 1;
         li.appendChild(a);
+        //addeventlistener for the buttons to add and remove active class
         a.addEventListener('click', (e) => {
             e.preventDefault();
             const currentPage = document.querySelector('.active');
